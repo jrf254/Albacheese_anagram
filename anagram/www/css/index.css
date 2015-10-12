@@ -140,4 +140,35 @@ body {
     outline: none;
     border: none;
     font-size:20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
 }
+
+#menu-toggle:checked ~ .c-menu-overlay {
+    height: 100%;
+}
+
+.c-menu-overlay {
+    height: 0;
+    background: #67809F;
+    width: 100%;
+    overflow: hidden;
+    transition: all 0.5s;
+
+}
+
+.o-menu-option {
+    width: 80%;
+    margin-left: 10%;
+    padding: 20px;
+    background:#34495E;
+    color:white;
+    border: 1px solid black;
+    font-size: 36px;
+    margin-top: 10px;
+
+}
+
