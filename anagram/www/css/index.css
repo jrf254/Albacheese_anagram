@@ -121,9 +121,18 @@ body {
     margin-bottom: 0;
     margin-left: 0;
     margin-right: 0;
-    margin-top: 20px;
+    margin-top: 0px;
     background: white !important;
     height: 100%;
+}
+
+#header {
+    height: 100%;
+}
+
+.view {
+    position: fixed;
+    top: 15%;
 }
 
 .navigation-menu {
@@ -143,8 +152,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-
-
 }
 
 #menu-toggle:checked ~ .c-menu-overlay {
@@ -157,7 +164,6 @@ body {
     width: 100%;
     overflow: hidden;
     transition: all 0.5s;
-
 }
 
 .o-menu-option {
@@ -170,5 +176,9 @@ body {
     font-size: 36px;
     margin-top: 10px;
 
+}
+
+.hidden {
+    display: none;
 }
 

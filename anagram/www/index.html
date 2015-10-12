@@ -36,22 +36,37 @@
         <title>Hello World</title>
     </head>
     <body>
-    <input type="checkbox" id="menu-toggle" style="display:none;"/>
-        <nav class="navigation-menu">
-            <label for="menu-toggle" class="c-menu-btn">&#9776;</label>
-        </nav>
-        <div class="c-menu-overlay">
-            <button class="o-menu-option">
-                New Game
-            </button>
+        <div id="header">
+            <input type="checkbox" id="menu-toggle" style="display:none;"/>
+            <nav class="navigation-menu">
+                <label for="menu-toggle" class="c-menu-btn">&#9776;</label>
+            </nav>
+            <div class="c-menu-overlay">
+                <button id="newGameButton" class="o-menu-option">
+                    New Game
+                </button>
 
-            <button class="o-menu-option">
-                About
-            </button>
+                <button id="aboutButton" class="o-menu-option">
+                    About
+                </button>
 
-            <button class="o-menu-option">
-                Credits
-            </button>
+                <button id="creditsButton" class="o-menu-option">
+                    Credits
+                </button>
+            </div>
+        </div>
+
+        <div id="splash" class="view">
+            This is the splash screen
+        </div>
+        <div id="game" class="view hidden">
+            This is the game screen
+        </div>
+        <div id="about" class="view hidden">
+            This is the about screen
+        </div>
+        <div id="credits" class="view hidden">
+            This is the credits screen
         </div>
         <!--<div class="app">-->
             <!--Penis-->
