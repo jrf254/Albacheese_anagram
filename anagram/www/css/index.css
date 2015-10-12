@@ -113,8 +113,17 @@
     /*animation:fade 3000ms infinite;*/
     /*-webkit-animation:fade 3000ms infinite;*/
 /*}*/
+html {
+    background: black;
+    height: 100%;
+}
 body {
-    margin: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 20px;
+    background: white !important;
+    height: 100%;
 }
 
 .navigation-menu {
