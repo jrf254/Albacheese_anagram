@@ -141,10 +141,18 @@ body {
     border: none;
     font-size:20px;
     display: flex;
+    display: -webkit-flex;
     align-items: center;
     justify-content: center;
 
 
+}
+
+body {
+    -webkit-animation: bugfix infinite 0.1s;
+}
+@-webkit-keyframes bugfix {
+    from { padding: 0; } to { padding: 0; }
 }
 
 #menu-toggle:checked ~ .c-menu-overlay {
@@ -157,6 +165,7 @@ body {
     width: 100%;
     overflow: hidden;
     transition: all 0.5s;
+    -webkit-transition: all 0.5s;
 
 }
 
