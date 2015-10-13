@@ -6,6 +6,15 @@
         <param name="onload" value="true" />
     </feature>
     <allow-intent href="market:*" />
+    <icon src="img/logo.png" />
+    <splash density="land-hdpi" src="img/logo.png" />
+    <splash density="land-ldpi" src="img/logo.png" />
+    <splash density="land-mdpi" src="img/logo.png" />
+    <splash density="land-xhdpi" src="img/logo.png" />
+    <splash density="port-hdpi" src="img/logo.png" />
+    <splash density="port-ldpi" src="img/logo.png" />
+    <splash density="port-mdpi" src="img/logo.png" />
+    <splash density="port-xhdpi" src="img/logo.png" />
     <name>Anagram</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
