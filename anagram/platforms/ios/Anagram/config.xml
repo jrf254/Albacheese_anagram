@@ -16,6 +16,7 @@
     </feature>
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
+    <icon src="img/logo.png" />
     <name>Anagram</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
