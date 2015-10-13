@@ -17,6 +17,16 @@
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
     <icon src="img/logo.png" />
+    <splash height="480" src="img/logo.png" width="320" />
+    <splash height="960" src="img/logo.png" width="640" />
+    <splash height="1024" src="img/logo.png" width="768" />
+    <splash height="2048" src="img/logo.png" width="1536" />
+    <splash height="768" src="img/logo.png" width="1024" />
+    <splash height="1536" src="img/logo.png" width="2048" />
+    <splash height="1136" src="img/logo.png" width="640" />
+    <splash height="1334" src="img/logo.png" width="750" />
+    <splash height="2208" src="img/logo.png" width="1242" />
+    <splash height="1242" src="img/logo.png" width="2208" />
     <name>Anagram</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
