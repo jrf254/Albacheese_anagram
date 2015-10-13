@@ -33,24 +33,32 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>Hello World</title>
+        <link rel="stylesheet" type="text/css" href="css/master.css">
+
+        <title>Anagram App</title>
     </head>
     <body>
         <div id="header">
             <input type="checkbox" id="menu-toggle" style="display:none;"/>
-            <nav class="navigation-menu">
-                <label for="menu-toggle" class="c-menu-btn">&#9776;</label>
+            <nav class="c-navigation-menu">
+                <label for="menu-toggle" class="c-navigation-menu__btn">&#9776;</label>
             </nav>
+
+            <div class="c-gray-screen"></div>
+
             <div class="c-menu-overlay">
-                <button id="newGameButton" class="o-menu-option">
+                <div class="c-menu-overlay__header">
+                    Albagram Game
+                </div>
+                <button id="newGameButton" class="c-menu-overlay__option">
                     New Game
                 </button>
 
-                <button id="aboutButton" class="o-menu-option">
+                <button id="aboutButton" class="c-menu-overlay__option">
                     About
                 </button>
 
-                <button id="creditsButton" class="o-menu-option">
+                <button id="creditsButton" class="c-menu-overlay__option">
                     Credits
                 </button>
             </div>

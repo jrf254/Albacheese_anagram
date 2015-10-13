@@ -49,3 +49,29 @@ var app = {
 };
 
 app.initialize();
+
+function BadController(){
+    this.currentViewName = null;
+
+    this.init();
+}
+
+BadController.prototype.init = function(){
+    this.currentViewName = "splash";
+
+    document.getElementById('newGameButton').addEventListener('click', function(){badController.displayElem('game');});
+    document.getElementById('aboutButton').addEventListener('click',  function(){badController.displayElem('about');});
+    document.getElementById('creditsButton').addEventListener('click',  function(){badController.displayElem('credits');});
+}
+
+BadController.prototype.displayElem = function(element){
+    var currentView = document.getElementById(this.currentViewName);
+    currentView.className += " hidden";
+
+    this.currentViewName = element;
+    var newView = document.getElementById(this.currentViewName);
+    newView.className = newView.className.replace(new RegExp('(\\s|^)' + 'hidden' + '(\\s|$)'),'');
+    console.log("fuck");
+}
+
+var badController = new BadController();
