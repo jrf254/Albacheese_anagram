@@ -60,6 +60,7 @@ BadController.prototype.init = function(){
     this.currentViewName = "splash";
 
     document.getElementById('newGameButton').addEventListener('click', function(){badController.displayElem('game');});
+    document.getElementById('homeScreenButton').addEventListener('click', function(){badController.displayElem('home');});
     document.getElementById('aboutButton').addEventListener('click',  function(){badController.displayElem('about');});
     document.getElementById('creditsButton').addEventListener('click',  function(){badController.displayElem('credits');});
 }
