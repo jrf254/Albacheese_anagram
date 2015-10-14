@@ -69,10 +69,52 @@
 #menu-toggle:checked ~ .c-gray-screen {
   background: rgba(211, 211, 211, 0.4);
 }
+.c-input-row {
+  height: 25%;
+  width: 100%;
+  background: #efefef;
+}
 .c-first-row {
   width: 100%;
   height: 25%;
+  display: flex;
+}
+.c-first-row__btn {
+  background: blue;
+  border: 1px solid white;
+  width: 20%;
+  height: 100%;
+  display: inline-block;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.c-second-row {
+  width: 100%;
+  height: 25%;
+  display: flex;
+}
+.c-second-row__btn {
+  background: red;
+  border: 1px solid white;
+  width: 20%;
+  height: 100%;
+  display: inline-block;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.c-third-row {
+  width: 100%;
+  height: 25%;
+  display: flex;
+}
+.c-third-row__btn {
   background: black;
+  border: 1px solid white;
+  width: 20%;
+  height: 100%;
+  display: inline-block;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 html {
   background: black;

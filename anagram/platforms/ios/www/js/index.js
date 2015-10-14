@@ -57,7 +57,7 @@ function BadController(){
 }
 
 BadController.prototype.init = function(){
-    this.currentViewName = "splash";
+    this.currentViewName = "game";
 
     document.getElementById('newGameButton').addEventListener('click', function(){badController.displayElem('game');});
     document.getElementById('homeScreenButton').addEventListener('click', function(){badController.displayElem('home');});
