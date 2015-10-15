@@ -1,47 +1,32 @@
 .c-input-row {
-  height: 25%;
+  height: calc(25% - 62px);
   width: 100%;
   background: #efefef;
 }
-.c-first-row {
+.o-row {
   width: 100%;
   height: 25%;
   display: flex;
 }
-.c-first-row__btn {
-  background: blue;
+.o-row__btn {
   border: 1px solid white;
   width: 20%;
   height: 100%;
-  display: inline-block;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-.c-second-row {
-  width: 100%;
-  height: 25%;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
 }
-.c-second-row__btn {
-  background: red;
-  border: 1px solid white;
-  width: 20%;
-  height: 100%;
-  display: inline-block;
-  padding: 0 !important;
-  margin: 0 !important;
+.o-row__btn--symbol {
+  background: #3498db;
+  font-size: 60px;
 }
-.c-third-row {
-  width: 100%;
-  height: 25%;
-  display: flex;
+.o-row__btn--word {
+  background: #3498db;
+  font-size: 24px;
 }
-.c-third-row__btn {
-  background: black;
-  border: 1px solid white;
-  width: 20%;
-  height: 100%;
-  display: inline-block;
-  padding: 0 !important;
-  margin: 0 !important;
+.u-letter-input {
+  background: #95a5a6;
+  font-size: 60px;
+  color: white;
 }
