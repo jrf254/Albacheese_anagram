@@ -59,10 +59,38 @@ function BadController(){
 BadController.prototype.init = function(){
     this.currentViewName = "game";
 
+    var inputField = document.getElementById('js-input-field');
+
     document.getElementById('newGameButton').addEventListener('click', function(){badController.displayElem('game');});
     document.getElementById('homeScreenButton').addEventListener('click', function(){badController.displayElem('home');});
     document.getElementById('aboutButton').addEventListener('click',  function(){badController.displayElem('about');});
     document.getElementById('creditsButton').addEventListener('click',  function(){badController.displayElem('credits');});
+
+
+    document.getElementById('js-clear-all').addEventListener('click',  function(){clearAll()});
+
+   var letters = document.getElementsByClassName('js-letter-input');
+
+    for(var i=0;i<letters.length;i++){
+        var input = letters[i].innerText;
+        letters[i].addEventListener('click', function(){letterInput(this);}, false);
+    }
+
+    function clearAll() {
+        inputField.innerText = "";
+
+        for(var i=0;i<letters.length;i++){
+            letters[i].disabled = false;
+        }
+
+    }
+
+    function letterInput(input) {
+        inputField.innerText += input.innerText;
+        input.disabled = true;
+    }
+
+
 }
 
 BadController.prototype.displayElem = function(element){
@@ -74,5 +102,6 @@ BadController.prototype.displayElem = function(element){
     newView.className = newView.className.replace(new RegExp('(\\s|^)' + 'hidden' + '(\\s|$)'),'');
     console.log("fuck");
 }
+
 
 var badController = new BadController();

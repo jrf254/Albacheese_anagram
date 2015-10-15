@@ -1,5 +1,5 @@
 .c-menu-overlay {
-  height: 70%;
+  height: calc(100% - 60px);
   left: -300px;
   background: #67809F;
   width: 50%;
@@ -39,10 +39,11 @@
   background: rgba(211, 211, 211, 0);
   height: 100%;
   width: 100%;
-  z-index: 500;
+  z-index: -1;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
 #menu-toggle:checked ~ .c-gray-screen {
   background: rgba(211, 211, 211, 0.4);
+  z-index: 500 !important;
 }

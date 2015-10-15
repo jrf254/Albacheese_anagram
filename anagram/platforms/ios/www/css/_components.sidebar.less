@@ -2,7 +2,7 @@
 
 
 .c-menu-overlay {
-  height: 70%;
+  height: ~"calc(100% - 60px)";
   left: -300px;
   background: #67809F;
   width: 50%;
@@ -43,13 +43,14 @@
 
 .c-gray-screen {
   position: absolute;
+  z-index:-1;
   background: rgba(211, 211, 211, 0);
   height: 100%;
   width: 100%;
-  z-index: 500;
+  z-index: -1;
   .transitions;
 
 
-  #menu-toggle:checked ~ & { background: rgba(211, 211, 211, 0.4); }
+  #menu-toggle:checked ~ & { background: rgba(211, 211, 211, 0.4); z-index:500 !important; }
 
 }

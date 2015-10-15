@@ -34,6 +34,7 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <link rel="stylesheet" type="text/css" href="css/master.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" />
 
         <title>Anagram App</title>
     </head>
@@ -77,32 +78,30 @@
         </div>
         <div id="game" class="view">
             <div class="c-input-row">
+                <div class="c-input-row__input" id="js-input-field"> </div>
+            </div>
+            <div class="o-row">
+                <button type="button" class="o-row__btn o-row__btn--symbol" id="js-new-game"> + </button>
+                <button type="button" class="o-row__btn u-letter-input js-letter-input">A</button>
+                <button type="button" class="o-row__btn u-letter-input js-letter-input">B</button>
+                <button type="button" class="o-row__btn u-letter-input js-letter-input">C</button>
+                <button type="button" class="o-row__btn o-row__btn--symbol" id="js-pause-game">| |</button>
+            </div>
+            <div class="o-row">
+                <button type="button" class="o-row__btn o-row__btn--word" id="js-shuffle-game">S</button>
+                <button type="button" class="o-row__btn u-letter-input js-letter-input">D</button>
+                <button type="button" class="o-row__btn u-letter-input js-letter-input">E</button>
+                <button type="button" class="o-row__btn u-letter-input js-letter-input">F</button>
+                <button type="button" class="o-row__btn"></button>
+            </div>
+            <div class="o-row">
+                <button type=" button" class="o-row__btn o-row__btn--word" id="js-clear-all">C</button>
+                <button type="button" class="o-row__btn u-letter-input js-letter-input">G</button>
+                <button type="button" class="o-row__btn u-letter-input js-letter-input">H</button>
+                <button  type="button" class="o-row__btn u-letter-input js-letter-input">I</button>
+                <button type="button" class="o-row__btn o-row__btn--word" id="js-enter-word">Enter</button>
+            </div>
 
-            </div>
-            <div class="c-first-row">
-                <div class="c-first-row__btn"></div>
-                <div class="c-first-row__btn"></div>
-                <div class="c-first-row__btn"></div>
-                <div class="c-first-row__btn"></div>
-                <div class="c-first-row__btn"></div>
-            </div>
-
-            <div class="c-second-row">
-                <div class="c-second-row__btn"></div>
-                <div class="c-second-row__btn"></div>
-                <div class="c-second-row__btn"></div>
-                <div class="c-second-row__btn"></div>
-                <div class="c-second-row__btn"></div>
-            </div>
-
-            <div class="c-third-row">
-                <div class="c-third-row__btn"></div>
-                <div class="c-third-row__btn"></div>
-                <div class="c-third-row__btn"></div>
-                <div class="c-third-row__btn"></div>
-                <div class="c-third-row__btn"></div>
-            </div>
-            
         </div>
         <div id="about" class="view hidden">
             This is the about screen
