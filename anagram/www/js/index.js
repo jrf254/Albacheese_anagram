@@ -63,6 +63,21 @@ BadController.prototype.init = function(){
     document.getElementById('homeScreenButton').addEventListener('click', function(){badController.displayElem('home');});
     document.getElementById('aboutButton').addEventListener('click',  function(){badController.displayElem('about');});
     document.getElementById('creditsButton').addEventListener('click',  function(){badController.displayElem('credits');});
+
+
+    document.getElementById('js-clear-all').addEventListener('click',  function(){console.log("here")});
+
+   var letters = document.getElementsByClassName('js-letter-input');
+
+    for(var i=0;i<letters.length;i++){
+        letters[i].addEventListener('click', function(){console.log("here")}, false);
+    }
+
+    function enterInput() {
+        console.log("here");
+    }
+
+
 }
 
 BadController.prototype.displayElem = function(element){
@@ -74,5 +89,6 @@ BadController.prototype.displayElem = function(element){
     newView.className = newView.className.replace(new RegExp('(\\s|^)' + 'hidden' + '(\\s|$)'),'');
     console.log("fuck");
 }
+
 
 var badController = new BadController();
