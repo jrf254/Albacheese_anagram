@@ -15,6 +15,10 @@
   -webkit-flex: 1;
   flex-wrap: wrap;
   flex-shrink: 1;
+  align-items: center;
+  justify-content: center;
+  -webkit-justify-content: center;
+  -webkit-align-items: center;
 }
 .o-row__btn {
   border: 1px solid white;
@@ -27,20 +31,22 @@
   display: -webkit-flex;
   align-items: center;
   justify-content: center;
+  -webkit-justify-content: center;
+  -webkit-align-items: center;
   color: white;
   flex-wrap: wrap;
   flex-shrink: 1;
 }
 .o-row__btn--symbol {
   background: #3498db;
-  font-size: 24px;
+  font-size: large;
 }
 .o-row__btn--word {
   background: #3498db;
-  font-size: 24px;
+  font-size: large;
 }
 .u-letter-input {
   background: #95a5a6;
-  font-size: 24px;
+  font-size: large;
   color: white;
 }
