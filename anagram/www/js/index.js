@@ -86,6 +86,8 @@ function AnagramGame(){
     this.avalilableWords = []; //pulled from the availableLetters
     this.inputField = null;
     this.letterFields = null;
+    this.timerId = null;
+    this.timeLeft = null;
 
     this.init();
 }
@@ -140,7 +142,6 @@ AnagramGame.prototype.shuffleBoard = function(){
 }
 
 AnagramGame.prototype.displayLetters = function(){
-    console.log(this.availableLetters);
     for(var i=0;i<this.letterFields.length;i++){
         this.letterFields[i].innerText = this.availableLetters[i];
     }
@@ -161,6 +162,26 @@ AnagramGame.prototype.clearAll = function(){
 AnagramGame.prototype.newGame = function(){
     this.generateLetters();
     this.shuffleBoard();
+    this.startTimer();
+}
+
+AnagramGame.prototype.startTimer = function(){
+    this.timerId = window.setInterval(this.tickTimer.bind(this), 1000);
+    this.timeLeft = 120;
+    document.getElementById('js-timer-content').innerText = this.timeLeft;
+}
+
+AnagramGame.prototype.tickTimer = function(){
+    this.timeLeft -= 1;
+    document.getElementById('js-timer-content').innerText = this.timeLeft;
+    if(this.timeLeft == 0){
+        this.stopTimer();
+    }
+}
+
+AnagramGame.prototype.stopTimer = function(){
+    window.clearInterval(this.timerId);
+    document.getElementById('js-timer-content').innerText = 0;
 }
 
 AnagramGame.prototype.enterWord = function(){
