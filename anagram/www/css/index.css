@@ -201,3 +201,23 @@ p {
 }
 
 
+.img-radius{
+    border-radius: 30%;
+    vertical-align: center;
+}
+.credits-background{
+    height: 100%;
+    background: #67809F;
+}
+.name{
+    font-family: Arial;
+    color: white;
+    font-size: 20pt;
+    text-align: center;
+}
+
+p {
+    font-family: Arial;
+    color: white;
+    font-size: 20pt;
+}
