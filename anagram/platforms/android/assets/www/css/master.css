@@ -4,7 +4,7 @@
   background: lightgray;
 }
 .c-navigation-menu__btn {
-  float: right;
+  float: left;
   height: 100%;
   width: 15%;
   background: lightgray;
@@ -22,7 +22,7 @@
   background: lightgray;
 }
 .c-menu-overlay {
-  height: 100%;
+  height: calc(100% - 60px);
   left: -300px;
   background: #67809F;
   width: 50%;
@@ -62,12 +62,49 @@
   background: rgba(211, 211, 211, 0);
   height: 100%;
   width: 100%;
-  z-index: 500;
+  z-index: -1;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
 #menu-toggle:checked ~ .c-gray-screen {
   background: rgba(211, 211, 211, 0.4);
+  z-index: 500 !important;
+}
+.c-input-row {
+  height: calc(25% - 62px);
+  width: 100%;
+  background: #efefef;
+}
+.c-input-row__input {
+  width: 100%;
+  height: 100%;
+}
+.o-row {
+  width: 100%;
+  height: 20%;
+  display: flex;
+}
+.o-row__btn {
+  border: 1px solid white;
+  width: 20%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.o-row__btn--symbol {
+  background: #3498db;
+  font-size: 60px;
+}
+.o-row__btn--word {
+  background: #3498db;
+  font-size: 24px;
+}
+.u-letter-input {
+  background: #95a5a6;
+  font-size: 60px;
+  color: white;
 }
 html {
   background: black;
@@ -79,12 +116,9 @@ body {
   height: 100%;
   -webkit-animation: bugfix infinite 0.1s;
 }
-#header {
-  height: 100%;
-}
 .view {
-  position: fixed;
-  top: 15%;
+  width: 100%;
+  height: 100%;
 }
 @-webkit-keyframes bugfix {
   from {

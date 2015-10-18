@@ -53,44 +53,19 @@ app.initialize();
 function BadController(){
     this.currentViewName = null;
 
+    this.game = null;
+    this.gameHasStarted = false;
+
     this.init();
 }
 
 BadController.prototype.init = function(){
-    this.currentViewName = "game";
+    this.currentViewName = "home";
 
-    var inputField = document.getElementById('js-input-field');
-
-    document.getElementById('newGameButton').addEventListener('click', function(){badController.displayElem('game');});
-    document.getElementById('homeScreenButton').addEventListener('click', function(){badController.displayElem('home');});
-    document.getElementById('aboutButton').addEventListener('click',  function(){badController.displayElem('about');});
-    document.getElementById('creditsButton').addEventListener('click',  function(){badController.displayElem('credits');});
-
-
-    document.getElementById('js-clear-all').addEventListener('click',  function(){clearAll()});
-
-   var letters = document.getElementsByClassName('js-letter-input');
-
-    for(var i=0;i<letters.length;i++){
-        var input = letters[i].innerText;
-        letters[i].addEventListener('click', function(){letterInput(this);}, false);
-    }
-
-    function clearAll() {
-        inputField.innerText = "";
-
-        for(var i=0;i<letters.length;i++){
-            letters[i].disabled = false;
-        }
-
-    }
-
-    function letterInput(input) {
-        inputField.innerText += input.innerText;
-        input.disabled = true;
-    }
-
-
+    document.getElementById('newGameButton').addEventListener('click', this.displayElem.bind(this, 'game'));
+    document.getElementById('homeScreenButton').addEventListener('click', this.displayElem.bind(this, 'home'));
+    document.getElementById('aboutButton').addEventListener('click',  this.displayElem.bind(this, 'about'));
+    document.getElementById('creditsButton').addEventListener('click',  this.displayElem.bind(this, 'credits'));
 }
 
 BadController.prototype.displayElem = function(element){
@@ -100,8 +75,41 @@ BadController.prototype.displayElem = function(element){
     this.currentViewName = element;
     var newView = document.getElementById(this.currentViewName);
     newView.className = newView.className.replace(new RegExp('(\\s|^)' + 'hidden' + '(\\s|$)'),'');
-    console.log("fuck");
+    if(element == 'game' && this.gameHasStarted == false){
+        this.gameHasStarted = true;
+        this.game = new AnagramGame();
+    }
 }
 
+function AnagramGame(){
+    this.inputField = null;
+    this.letters = null;
+
+    this.init();
+}
+
+AnagramGame.prototype.init = function(){
+    this.inputField = document.getElementById('js-input-field');
+    this.letters = document.getElementsByClassName('js-letter-input');
+
+    document.getElementById('js-clear-all').addEventListener('click', this.clearAll.bind(this));
+    
+    for(var i=0;i<this.letters.length;i++){
+        this.letters[i].addEventListener('click', this.letterInput.bind(this, this.letters[i]), false);
+    }
+}
+
+AnagramGame.prototype.letterInput = function(input){
+    console.log(input);
+    this.inputField.innerText += input.innerText;
+    input.disabled = true;
+}
+
+AnagramGame.prototype.clearAll = function(){
+    this.inputField.innerText = "";
+    for(var i=0;i<this.letters.length;i++){
+        this.letters[i].disabled = false;
+    }
+}
 
 var badController = new BadController();

@@ -1,0 +1,36 @@
+.c-input-row {
+  height: calc(25% - 62px);
+  width: 100%;
+  background: #efefef;
+}
+.c-input-row__input {
+  width: 100%;
+  height: 100%;
+}
+.o-row {
+  width: 100%;
+  height: 20%;
+  display: flex;
+}
+.o-row__btn {
+  border: 1px solid white;
+  width: 20%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.o-row__btn--symbol {
+  background: #3498db;
+  font-size: 60px;
+}
+.o-row__btn--word {
+  background: #3498db;
+  font-size: 24px;
+}
+.u-letter-input {
+  background: #95a5a6;
+  font-size: 60px;
+  color: white;
+}
