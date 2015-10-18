@@ -82,34 +82,89 @@ BadController.prototype.displayElem = function(element){
 }
 
 function AnagramGame(){
+    this.availableLetters = []; //psudorandomly generated
+    this.avalilableWords = []; //pulled from the availableLetters
     this.inputField = null;
-    this.letters = null;
+    this.letterFields = null;
 
     this.init();
 }
 
 AnagramGame.prototype.init = function(){
     this.inputField = document.getElementById('js-input-field');
-    this.letters = document.getElementsByClassName('js-letter-input');
+    this.letterFields = document.getElementsByClassName('js-letter-input');
 
     document.getElementById('js-clear-all').addEventListener('click', this.clearAll.bind(this));
+    document.getElementById('js-enter-word').addEventListener('click', this.enterWord.bind(this));
+    document.getElementById('js-shuffle-game').addEventListener('click', this.shuffleBoard.bind(this));
+    document.getElementById('js-new-game').addEventListener('click', this.newGame.bind(this));
     
-    for(var i=0;i<this.letters.length;i++){
-        this.letters[i].addEventListener('click', this.letterInput.bind(this, this.letters[i]), false);
+    for(var i=0;i<this.letterFields.length;i++){
+        this.letterFields[i].addEventListener('click', this.letterInput.bind(this, this.letterFields[i]), false);
+    }
+}
+
+AnagramGame.prototype.generateLetters = function(){
+    this.availableLetters = [];
+    var possibleVowels = ['a','e','i','o','u'];
+    var possibleConsonants = ['b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','w','x','y','z'];
+    for(var i = 0; i < 3; i++){
+        var element = Math.floor(Math.random() * (possibleVowels.length - 1));
+        console.log(element, possibleVowels[element]);
+        this.availableLetters.push(possibleVowels[element]);
+    }
+
+    for(var i = 0; i < 6; i++){
+        var element = Math.floor(Math.random() * (possibleConsonants.length - 1));
+        this.availableLetters.push(possibleConsonants[element]);
+    }
+}
+
+AnagramGame.prototype.shuffle = function(){
+    var currentIndex = this.availableLetters.length, tempValue, randomIndex;
+
+    while (0 !== currentIndex){
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        tempValue = this.availableLetters[currentIndex];
+        this.availableLetters[currentIndex] = this.availableLetters[randomIndex];
+        this.availableLetters[randomIndex] = tempValue;
+    }
+}
+
+AnagramGame.prototype.shuffleBoard = function(){
+    this.clearAll();
+    this.shuffle();
+    this.displayLetters();
+}
+
+AnagramGame.prototype.displayLetters = function(){
+    console.log(this.availableLetters);
+    for(var i=0;i<this.letterFields.length;i++){
+        this.letterFields[i].innerText = this.availableLetters[i];
     }
 }
 
 AnagramGame.prototype.letterInput = function(input){
-    console.log(input);
     this.inputField.innerText += input.innerText;
     input.disabled = true;
 }
 
 AnagramGame.prototype.clearAll = function(){
     this.inputField.innerText = "";
-    for(var i=0;i<this.letters.length;i++){
-        this.letters[i].disabled = false;
+    for(var i=0;i<this.letterFields.length;i++){
+        this.letterFields[i].disabled = false;
     }
+}
+
+AnagramGame.prototype.newGame = function(){
+    this.generateLetters();
+    this.shuffleBoard();
+}
+
+AnagramGame.prototype.enterWord = function(){
+
 }
 
 var badController = new BadController();
