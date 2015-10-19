@@ -91,6 +91,7 @@ p {
     text-align: center;
     padding-left: 5%;
     padding-right: 5%;
+    
 }
 
 /*.event {*/
@@ -131,7 +132,8 @@ p {
 
 .grid-container{
     width: 100%; 
-    max-width: 1200px;      
+    max-width: 1200px;
+    background: #67809F;      
 }
 
 /*-- our cleafix hack -- */ 
