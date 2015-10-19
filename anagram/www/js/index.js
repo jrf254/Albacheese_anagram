@@ -60,10 +60,8 @@ function BadController(){
 }
 
 BadController.prototype.init = function(){
-    this.currentViewName = "home";
-
+    this.currentViewName = "game";
     document.getElementById('newGameButton').addEventListener('click', this.displayElem.bind(this, 'game'));
-    document.getElementById('homeScreenButton').addEventListener('click', this.displayElem.bind(this, 'home'));
     document.getElementById('aboutButton').addEventListener('click',  this.displayElem.bind(this, 'about'));
     document.getElementById('creditsButton').addEventListener('click',  this.displayElem.bind(this, 'credits'));
 }
