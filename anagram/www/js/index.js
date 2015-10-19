@@ -61,6 +61,7 @@ function BadController(){
 
 BadController.prototype.init = function(){
     this.currentViewName = "game";
+    this.displayElem('game');
     document.getElementById('newGameButton').addEventListener('click', this.displayElem.bind(this, 'game'));
     document.getElementById('aboutButton').addEventListener('click',  this.displayElem.bind(this, 'about'));
     document.getElementById('creditsButton').addEventListener('click',  this.displayElem.bind(this, 'credits'));
