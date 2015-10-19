@@ -74,6 +74,9 @@
   height: calc(25% - 62px);
   width: 100%;
   background: #efefef;
+  text-align: center;
+  font-size: larger;
+  vertical-align: middle;
 }
 .c-input-row__input {
   width: 100%;

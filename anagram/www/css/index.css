@@ -224,3 +224,21 @@ p {
     color: white;
     font-size: 20pt;
 }
+
+.inline {
+    display: inline-block;
+}
+
+.score-block {
+    float: left;
+}
+
+.highscore-block {
+    float: right;
+}
+
+.c-score-row {
+    height: 5%;
+    width: 100%;
+    background: #efefef;
+}

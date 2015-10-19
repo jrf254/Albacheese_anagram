@@ -75,9 +75,22 @@
         <div id="home" class="view">
             This is the home screen
         </div>
-        <div id="game" class="view hidden">
+        <div id="game" class="view hidden" disabled>
+            <div class="c-score-row">
+                <div class="c-input-row__input" id="js-score-field">
+                    <div class="score-block inline">
+                        <div class="score-header inline">Score: </div>
+                        <div class="score-entry inline" id="current-score">0</div>
+                    </div>
+                    <div class="highscore-block inline">
+                        <div class="score-header inline">High Score: </div>
+                        <div class="score-entry inline" id="high-score">0</div>
+                    </div>
+                </div>
+            </div>
             <div class="c-input-row">
                 <div class="c-input-row__input" id="js-input-field"> </div>
+                
             </div>
             <div class="o-row">
                 <button type="button" class="o-row__btn o-row__btn--symbol" id="js-new-game"> + </button>
@@ -100,7 +113,10 @@
                 <button  type="button" class="o-row__btn u-letter-input js-letter-input" disabled></button>
                 <button type="button" class="o-row__btn o-row__btn--word" id="js-enter-word">Enter</button>
             </div>
-
+            <div class="c-input-row">
+                <div class="inline">Remaining words: </div>
+                <div class="inline" id="js-remaining-field"> </div>
+            </div>
         </div>
         <div id="about" class="view hidden">
             <div class="grid-container">

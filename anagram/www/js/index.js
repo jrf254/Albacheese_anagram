@@ -90,6 +90,7 @@ function AnagramGame(){
     this.timerId = null;
     this.timeLeft = null;
     this.score = 0;
+    this.highscore = 0;
 
     this.init();
 }
@@ -97,11 +98,13 @@ function AnagramGame(){
 AnagramGame.prototype.init = function(){
     this.inputField = document.getElementById('js-input-field');
     this.letterFields = document.getElementsByClassName('js-letter-input');
+    this.disableAll();
 
     document.getElementById('js-clear-all').addEventListener('click', this.clearAll.bind(this));
     document.getElementById('js-enter-word').addEventListener('click', this.enterWord.bind(this));
     document.getElementById('js-shuffle-game').addEventListener('click', this.shuffleBoard.bind(this));
     document.getElementById('js-new-game').addEventListener('click', this.newGame.bind(this));
+    document.getElementById('js-pause-game').addEventListener('click', this.endGame.bind(this));
     
     for(var i=0;i<this.letterFields.length;i++){
         this.letterFields[i].addEventListener('click', this.letterInput.bind(this, this.letterFields[i]), false);
@@ -114,7 +117,6 @@ AnagramGame.prototype.generateLetters = function(){
     var possibleConsonants = ['b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','w','x','y','z'];
     for(var i = 0; i < 3; i++){
         var element = Math.floor(Math.random() * (possibleVowels.length - 1));
-        console.log(element, possibleVowels[element]);
         this.availableLetters.push(possibleVowels[element]);
     }
 
@@ -138,7 +140,6 @@ AnagramGame.prototype.generateWords = function(){
             this.avalilableWords.push(wordsList[i]);
         }
     }
-    console.log(this.avalilableWords.length);
 }
 
 AnagramGame.prototype.shuffle = function(){
@@ -180,11 +181,19 @@ AnagramGame.prototype.clearAll = function(){
 
 AnagramGame.prototype.newGame = function(){
     this.score = 0;
+    document.getElementById('current-score').innerText = this.score;
+    if(this.timerId != null){
+        this.stopTimer();
+    }
     this.foundWords = [];
     this.generateLetters();
     this.generateWords();
     this.shuffleBoard();
     this.startTimer();
+    document.getElementById('js-remaining-field').innerText = this.avalilableWords.length;
+
+    // wait to enable all until everything is ready
+    this.enableAll();
 }
 
 AnagramGame.prototype.startTimer = function(){
@@ -196,7 +205,7 @@ AnagramGame.prototype.startTimer = function(){
 AnagramGame.prototype.tickTimer = function(){
     this.timeLeft -= 1;
     document.getElementById('js-timer-content').innerText = this.timeLeft;
-    if(this.timeLeft == 0){
+    if(this.timeLeft <= 0){
         this.stopTimer();
     }
 }
@@ -209,18 +218,56 @@ AnagramGame.prototype.stopTimer = function(){
 AnagramGame.prototype.enterWord = function(){
     var valid = false;
     for(var i = 0; i < this.avalilableWords.length; i++){
-        if(this.avalilableWords[i].indexOf(this.inputField.innerText) != -1){
+        if(this.avalilableWords[i].indexOf(this.inputField.innerText) != -1 && this.avalilableWords[i].length == this.inputField.innerText.length){
             valid = true;
         }
     }
     if(valid == true){
         this.score += 1;
         this.foundWords.push(this.inputField.innerText);
+        document.getElementById('current-score').innerText = this.score;
+        document.getElementById('js-remaining-field').innerText = this.avalilableWords.length - this.foundWords.length;
         console.log("nice!");
     }else{
         console.log("boo!");
     }
     this.clearAll();
+}
+
+AnagramGame.prototype.endGame = function(){
+    this.inputField.innerText = "Game Over!";
+    this.disableAll();
+    this.stopTimer();
+    if(this.score > this.highscore){
+        this.highscore = this.score;
+        document.getElementById('high-score').innerText = this.highscore;
+    }
+    this.score = 0;
+
+    for(var i=0;i<this.letterFields.length;i++){
+        this.letterFields[i].disabled = true;
+        this.letterFields[i].innerText = '';
+    }
+}
+
+AnagramGame.prototype.disableAll = function(){
+    for(var i=0;i<this.letterFields.length;i++){
+        this.letterFields[i].disabled = true;
+    }
+    document.getElementById('js-pause-game').disabled = true;
+    document.getElementById('js-shuffle-game').disabled = true;
+    document.getElementById('js-clear-all').disabled = true;
+    document.getElementById('js-enter-word').disabled = true;
+}
+
+AnagramGame.prototype.enableAll = function(){
+    for(var i=0;i<this.letterFields.length;i++){
+        this.letterFields[i].disabled = false;
+    }
+    document.getElementById('js-pause-game').disabled = false;
+    document.getElementById('js-shuffle-game').disabled = false;
+    document.getElementById('js-clear-all').disabled = false;
+    document.getElementById('js-enter-word').disabled = false;
 }
 
 var badController = new BadController();
