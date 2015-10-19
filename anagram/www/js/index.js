@@ -218,7 +218,16 @@ AnagramGame.prototype.enterWord = function(){
     var valid = false;
     for(var i = 0; i < this.avalilableWords.length; i++){
         if(this.avalilableWords[i].indexOf(this.inputField.innerText) != -1 && this.avalilableWords[i].length == this.inputField.innerText.length){
-            valid = true;
+            if(this.foundWords.length == 0){
+                valid = true;
+            }else{
+                for(var j = 0; j < this.foundWords.length; j++){
+                    console.log(this.foundWords[j], this.inputField.innerText);
+                    if(this.foundWords[j].indexOf(this.inputField.innerText) == -1){
+                        valid = true;
+                    }
+                }
+            }
         }
     }
     if(valid == true){
