@@ -204,7 +204,7 @@ AnagramGame.prototype.tickTimer = function(){
     this.timeLeft -= 1;
     document.getElementById('js-timer-content').innerText = this.timeLeft;
     if(this.timeLeft <= 0){
-        this.stopTimer();
+        this.endGame();
     }
 }
 
